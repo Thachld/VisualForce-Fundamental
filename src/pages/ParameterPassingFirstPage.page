@@ -1,0 +1,9 @@
+<apex:page showHeader="true" sidebar="true">
+    <apex:form>
+        <apex:pageBlock>
+            <apex:outputLink value ="/apex/ParameterPassingSecondPage"> Click Here
+                <apex:param name="name" value="Nguyen Van A"/> 
+            </apex:outputLink>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

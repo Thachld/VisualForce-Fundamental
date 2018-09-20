@@ -1,0 +1,17 @@
+{
+    "projectName": "VisualForce Fundamental",
+    "username": "thachld@gimasys.com",
+    "id": "d81a6c80-a441-11e8-8af6-b1b6d251fba6",
+    "namespace": "",
+    "orgType": "developer",
+    "loginUrl": "https://login.salesforce.com/",
+    "instanceUrl": "https://ap5.salesforce.com",
+    "workspace": "D:\\Salesforce\\SFDC Workspaces",
+    "subscription": [
+        "ApexClass",
+        "ApexComponent",
+        "ApexPage",
+        "ApexTrigger",
+        "StaticResource"
+    ]
+}

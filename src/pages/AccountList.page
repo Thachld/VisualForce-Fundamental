@@ -1,0 +1,6 @@
+<apex:page standardController="Account" recordSetVar="accts">
+	<apex:dataList value="{!accts}" var="a">
+        <apex:outputText value = "{!a.Name}"/>
+        <apex:outputText value = "{!a.AccountNumber}"/>
+    </apex:dataList>
+</apex:page>

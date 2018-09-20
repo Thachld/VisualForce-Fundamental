@@ -1,0 +1,9 @@
+<apex:page showHeader="true" sidebar="true" standardController="Account">
+	<apex:pageBlock title="Account">
+        <apex:outputField value="{!Account.Name}"/>  
+        
+        <apex:relatedList list="Contacts"/>
+        <apex:relatedList list="Opportunities"/>
+    </apex:pageBlock> 
+
+</apex:page>

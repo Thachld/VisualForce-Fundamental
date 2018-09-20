@@ -1,0 +1,58 @@
+<apex:page controller="TreeViewExample">
+    <!-- Include the Jquery Script files -->
+    
+    <link href="{!URLFOR($Resource.JqueryTreeView,'Jquerytreeview/jquery.treeview.css')}" rel="stylesheet"/>
+    <script src="{!URLFOR($Resource.JqueryTreeView,'Jquerytreeview/jquery.js')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.JqueryTreeView,'Jquerytreeview/jquery.cookie.js')}" type="text/javascript"></script>
+    <script src="{!URLFOR($Resource.JqueryTreeView,'Jquerytreeview/jquery.treeview.js')}" type="text/javascript"></script>
+
+    <!-- End of Javascript files -->
+    
+    <script type="text/javascript">
+    $(function() {
+        $("#idTreeView").treeview({
+        collapsed: true,
+        animated: "medium", 
+        control:"#IdTreeControl",
+        persist: "location"
+        });
+    })
+    </script>
+    <!-- Start TreeView -->
+
+    <div id = "IdTreeControl">
+        <a href="https://www.blogger.com/blogger.g?#">
+            <span style="color:black">Collapse All</span>            
+        </a>
+        <a href="https://www.blogger.com/blogger.g?#">
+            <span style="color:black">Expand All</span>            
+        </a>
+        <br/>
+        <br/>
+    </div>
+
+    <ul id="idTreeView">
+        <apex:repeat value="{!TreeView}" var="parent"> 
+            <li>
+                <b>
+                    <apex:outputLink value="/{!parent.Parent.id}">
+                        <apex:outputText escape="false" style="color:black" value="{!parent.Parent.Name}"/> 
+                    </apex:outputLink>                    
+                </b>
+                <ul>
+                    <apex:repeat value="{!parent.Child}" var="child">
+                        <li>
+                            <span class="formattextcon">
+                                <apex:outputLink value="/{!child.id}">
+                                    <apex:outputText escape="false" style="color:black" value="{!child.LastName}"/>   
+                                </apex:outputLink>      
+                            </span>
+                        </li>
+                    </apex:repeat> 
+                </ul>
+            </li>
+        </apex:repeat>
+    </ul>
+
+    <!-- End of TreeView -->   
+</apex:page>

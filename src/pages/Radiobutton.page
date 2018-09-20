@@ -1,0 +1,15 @@
+<apex:page>    
+    <apex:form>     
+        <apex:pageBlock>      
+            <apex:pageBlockSection>
+                <apex:pageBlockSectionItem> 
+                        <apex:outputLabel value="Gender"/>
+                        <apex:selectRadio layout="pageDirection">
+                            <apex:selectOption itemLabel="Male" itemValue="M"/>
+                            <apex:selectOption itemLabel="Female" itemValue="F"/>
+                        </apex:selectRadio>
+                </apex:pageBlockSectionItem>
+            </apex:pageBlockSection>
+        </apex:pageBlock>    
+    </apex:form>     
+</apex:page>

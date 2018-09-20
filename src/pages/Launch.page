@@ -1,0 +1,9 @@
+<apex:page showHeader="true" sidebar="true" controller="LaunchController" action="{!allowAccess}">
+	<apex:sectionHeader title="Protected Content Launch Page">
+        <apex:pageMessage summary="Access Denied" severity="error" strength="1"/>
+        <p>Your administrator has not given you access to the ProtectedContent page</p> 
+        <p>If you believe you should have access, please contact 
+          <a href="mailto:thachld@gimasys.com?Subject=Access%20Request%20Protected%20Page">Thach Le</a>.
+        </p>
+    </apex:sectionHeader>
+</apex:page>

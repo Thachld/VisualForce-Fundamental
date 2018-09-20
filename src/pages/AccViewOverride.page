@@ -1,0 +1,98 @@
+<apex:page standardController="Account">
+    <apex:form>
+         <!-- Account information   -->
+
+        <apex:pageBlock title="Account information"> 
+            <apex:pageMessages />
+            <apex:pageBlockButtons location="top">
+
+                 <!-- Save action -->
+                 <apex:actionStatus id="actSave">
+                     <apex:facet name="stop">
+                        <apex:commandButton value="Save" action="{!Save}" disabled="False" reRender="actSave" status="actSave"/>
+                     </apex:facet>
+                     <apex:facet name="start">
+                        <apex:commandButton value="Saving..." disabled="True" status="actSave"/>    
+                     </apex:facet>
+                 </apex:actionStatus>
+                
+
+                <!-- Qick save action -->
+                <apex:actionStatus id = "actQickSaveStatus">
+                    <apex:facet name="stop">
+                        <apex:commandButton value="Quick Save" action="{!QuickSave}" disabled="False" reRender="actQickSaveStatus" status="actQickSaveStatus"/>
+                    </apex:facet>
+                    <apex:facet name="start">
+                        <apex:commandButton value="Saving..." disabled="True" status="actQickSaveStatus"/>
+                    </apex:facet>
+                </apex:actionStatus>
+                
+            </apex:pageBlockButtons>             
+            <apex:pageBlockSection columns="1" > 
+                <apex:outputField value="{!Account.Name}" />
+                <apex:outputField value="{!Account.AccountNumber}"/>                
+                <apex:pageBlockSectionItem>
+                    <apex:outputText value="{0,date,long}">
+                        <apex:outputLabel value="SLA Expiration date "/>
+                        <apex:param value="{!Account.SLAExpirationDate__c}"/>
+                    </apex:outputText>   
+                </apex:pageBlockSectionItem>                
+                <apex:repeat value = "{!$ObjectType.Account.FieldSets.account_field_set}" var="fields">
+                    <apex:inputField value = "{!Account[fields]}" required="true"/>                        
+                </apex:repeat>                   
+            </apex:pageBlockSection>   
+
+             <!-- Contact list   -->
+
+            <apex:pageBlockSection title="Contact list">
+                <apex:pageBlockTable value="{!Account.Contacts}" var="contacts">
+                    <apex:column width="100">
+                        <apex:facet name="header">
+                            Contact Name
+                        </apex:facet>
+                        <apex:outputLink value="/{!contacts.Id}">
+                            <apex:outputField value="{!contacts.Name}"/>
+                        </apex:outputLink>
+                    </apex:column>
+                    <apex:column width="100">
+                            <apex:facet name="header">
+                                Email
+                            </apex:facet>
+                            <apex:outputField value="{!contacts.Email}"/>
+                    </apex:column>
+                    <apex:column width="100">
+                            <apex:facet name="header">
+                                Phone
+                            </apex:facet>
+                            <apex:outputField value="{!contacts.Phone}"/>
+                    </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>  
+            
+            <!-- Case List   -->
+            <apex:pageBlockSection title="Case List">
+                <apex:pageBlockTable value="{!Account.Cases}" var="case">
+                        <apex:column width="100">
+                                <apex:facet name="header">
+                                    Case Number
+                                </apex:facet>
+                                <apex:outputField value="{!case.CaseNumber}"/>
+                            </apex:column>
+                            <apex:column width="100">
+                                    <apex:facet name="header">
+                                            ContactEmail
+                                    </apex:facet>
+                                    <apex:outputField value="{!case.ContactEmail}"/>
+                            </apex:column>
+                            <apex:column width="100">
+                                    <apex:facet name="header">
+                                        Subject
+                                    </apex:facet>
+                                    <apex:outputField value="{!case.Subject}"/>
+                            </apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+   
+    </apex:form>
+</apex:page>

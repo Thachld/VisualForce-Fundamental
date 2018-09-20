@@ -1,0 +1,5 @@
+<apex:page showHeader="true" sidebar="true" controller="ParameterPassing">
+	<apex:pageBlock>
+        <apex:outputText value="{!name}"/>
+    </apex:pageBlock>
+</apex:page>

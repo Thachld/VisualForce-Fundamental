@@ -1,0 +1,33 @@
+<apex:page standardController="Opportunity">
+	<apex:pageBlock title="{!Opportunity.Name}">
+        <apex:pageBlockTable value="{!Opportunity.OpportunityLineItems}" var = "items" >
+            <apex:column>
+                <apex:facet name="header">
+                    Name
+                </apex:facet>
+                <apex:outputField value="{!items.PricebookEntry.Name}"/>
+            </apex:column>
+            <apex:column>
+                <apex:facet name="header">
+                    ServiceDate
+                </apex:facet>
+                <apex:outputField value="{!items.ServiceDate}"/>
+            </apex:column>
+            <apex:column>
+                <apex:facet name="header">
+                    Quantity
+                </apex:facet>
+                <apex:outputField value="{!items.Quantity}"/>
+            </apex:column>
+            <apex:column>
+                <apex:facet name="header">
+                    UnitPrice
+                </apex:facet>
+                <apex:facet name="footer">
+                    <apex:outputText value="Total" style="float:right"/>
+                </apex:facet>
+                <apex:outputField value="{!items.UnitPrice}"/>
+            </apex:column>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+</apex:page>

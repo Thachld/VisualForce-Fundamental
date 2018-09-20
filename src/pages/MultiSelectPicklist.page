@@ -1,0 +1,28 @@
+<apex:page showHeader="true" sidebar="true" controller="MultiSelectPicklist">
+	<apex:form title="MultiSelect Picklist">
+        <apex:panelGrid columns="3" id = "multi">
+
+            <!-- Left Selection List-->            
+            <apex:selectList id = 'left' value="{!leftSelected}" multiselect="True" style="width:100px" size="5">
+                <apex:selectOptions value="{!leftOptionValues}"/> 
+            </apex:selectList>
+
+            <!-- Arrow button -->
+            <apex:panelGroup>
+                <br/>
+                <apex:image styleClass="picklistArrowRight" value="/s.gif">
+                    <apex:actionSupport event="onclick" action="{!getSelected}" reRender="multi"/>
+                </apex:image>
+                <br/><br/>
+                <apex:image styleClass="picklistArrowLeft" value="/s.gif">
+                    <apex:actionSupport event="onclick" action="{!getDeselected}" reRender="multi"/>
+                </apex:image>              
+            </apex:panelGroup>
+
+             <!-- Right Selection List-->             
+            <apex:selectList id="right" value="{!rightSelected}" multiselect="True" style="width:100px" size="5">
+                <apex:selectOptions value="{!rightOptionValues}"/>
+            </apex:selectList>
+        </apex:panelGrid>
+    </apex:form>
+</apex:page>
